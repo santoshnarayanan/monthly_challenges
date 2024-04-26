@@ -1,7 +1,7 @@
-from django.http import HttpResponse, HttpResponseNotFound,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
-monthly_challenges_data ={
+monthly_challenges_data = {
     "january": "Eat no meat fro entire month January",
     "february": "febraury  challenges are coming up",
     "march": "Learn Django for life",
@@ -18,15 +18,31 @@ monthly_challenges_data ={
 # Create your views here.
 
 
+def index(request):
+    list_items = ""
+    months = list(monthly_challenges_data.keys())
+
+    for month in months:
+        capitalized_month = month.capitalize()
+        month_path = reverse("month-challenge", args=[month])
+        list_items += f"<li><a href=\"{month_path}\">{
+            capitalized_month}</a></li>"
+
+    response_data = f"<ul>{list_items}</ul>"
+    return HttpResponse(response_data)
+
+
 def monthly_challenge_number(request, month):
     months = list(monthly_challenges_data.keys())
-    
+
     if month > len(months):
         return HttpResponseNotFound("Invalid month")
-    
-    redirect_month = months[month -1]
-    redirect_path = reverse("month-challenge", args=[redirect_month]) #/challenge/jaunary
+
+    redirect_month = months[month - 1]
+    redirect_path = reverse(
+        "month-challenge", args=[redirect_month])  # /challenge/jaunary
     return HttpResponseRedirect(redirect_path)
+
 
 def monthly_challenge(request, month):
     try:
