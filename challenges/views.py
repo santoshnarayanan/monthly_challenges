@@ -4,4 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Navigated to January link")
+    return HttpResponse("Eat no meat fro entire month January")
+
+def indexfeb(request):
+    return HttpResponse("febraury  challenges are coming up")
