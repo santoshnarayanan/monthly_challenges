@@ -2,10 +2,5 @@
 .idea
 *.pyc
 *.vscode
-challenges/__pycache__
-
+/challenges/__pycache__
 /monthly_challenges/__pycache__
-monthly_challenges/__pycache__/__init__.cpython-312.pyc
-
-/monthly_challenges/__pycache__/__init__.cpython-312.pyc
-/monthly_challenges/__pycache__/settings.cpython-312.pyc
