@@ -3,3 +3,6 @@
 *.pyc
 *.vscode
 challenges/__pycache__
+
+/monthly_challenges/__pycache__
+monthly_challenges/__pycache__/__init__.cpython-312.pyc
