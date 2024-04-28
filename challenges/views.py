@@ -14,7 +14,7 @@ monthly_challenges_data = {
     "september": "Autum time",
     "october": "Winter frost",
     "november": "Learn Azure from scratch",
-    "december": "Coldest month of the year",
+    "december": None,
 }
 # Create your views here.
 
@@ -42,7 +42,7 @@ def monthly_challenge_number(request, month):
 def monthly_challenge(request, month):
     try:
         message = monthly_challenges_data[month]
-        return render(request,"challenges/challenge.html", {
+        return render(request, "challenges/challenge.html", {
             "text": message,
             "month_name": month.capitalize()
         })
